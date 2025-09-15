@@ -53,3 +53,15 @@ print(math.pi) # Pi constant
 # Data Types
 # Integers, floats, strings, booleans, and more. Input/output, print formatting
 
+number = 42               # Integer
+pi_value = 3.14159       # Float
+greeting = "Hello!"      # String
+is_active = True         # Boolean
+# complex_num = 2 + 3j    # Complex Number
+# fruits = ["apple", "banana", "cherry"]  # List
+# person = {"name": "Alice", "age": 30}  # Dictionary
+# unique_numbers = {1, 2, 3}  # Set
+# coordinates = (10.0, 20.0)  # Tuple
+# NoneType
+data = None               # NoneType
+
