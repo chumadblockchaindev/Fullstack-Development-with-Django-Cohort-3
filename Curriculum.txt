@@ -1,0 +1,129 @@
+Week 1: Installation and Setup and Installation of Extensions. Setup Vs Code for Python
+Introduction to python programming; 
+Basic Python Programming Concepts(print statement, variables, assignment and maths operators, comments)
+
+Week 2: 
+
+Basic Data Types: Delve into the core data types in Python:
+integers, floats, strings, booleans, and more, to enhance your coding efficiency.
+Input/output, print formatting
+
+Week 3:
+
+Basic Syntax and Control Flow: Get familiar with control flow statements, 
+including loops, conditionals, and functions, to write clean and efficient code.
+
+if, elif, else statements
+
+for loops, while loops
+
+break, continue, pass
+
+Week 4:
+
+Functions: 
+
+Defining functions
+
+Arguments & return values
+
+Default Arguments
+
+*args and **kwargs
+
+Decorators
+
+
+Week 5:
+
+Basic Data Structures: Explore the fundamental data structures used in python, 
+such as lists and tuples, dictionary and sets to efficiently manage data in your projects.
+Explore the fundamental more complex data structures, manipulating data structures.
+Lists & list comprehensions etc...Solve examples relating to data structure, Lambda functions
+
+
+Week 6: 
+
+Object-Oriented Programming (OOP): Master the principles of OOP in Django, 
+understanding classes, objects, inheritance to build scalable applications.
+Classes and objects
+Constructors (init)
+Methods, attributes
+Inheritance & polymorphism
+Encapsulation, Abstraction
+
+Week 7: Error Handling
+
+* Exceptions: Gain a deeper understanding of Python's exception handling mechanism, 
+learning how to raise, catch, and define custom exceptions to improve your application's reliability.
+try, except
+finally, raise
+Common built-in exceptions
+
+* String ManiPulation in Python
+
+* Files and File I/O: Discover how to work with files in Django, 
+mastering reading from and writing to files to store and retrieve data as needed.
+Reading/writing text files
+Using with open(...)
+JSON parsing
+
+* Modules and Packages
+Creating and importing modules
+Standard libraries (os, sys, math, datetime)
+
+10. 
+Introduction to DJANGO, Installation, Setup etc...
+Database Operations: Understand how to perform CRUD operations (Create, Read, Update, Delete) 
+on databases in Django, leveraging models and queries to interact with your database efficiently.
+
+HTTP & Web Basics
+
+Understanding HTTP methods (GET, POST)
+
+Client-server model, requests & responses
+
+Week 11:
+
+More DJANGO Practice and Error Handling: Learn how to effectively handle errors and exceptions in Django, 
+implementing try-except blocks to create robust applications that can gracefully manage unexpected situations.
+
+Week 12: Databases (Foundational)
+
+SQL basics: SELECT, INSERT, UPDATE, DELETE
+
+Understanding relational databases
+
+
+Class Projects:
+
+A program to automate sending messages to email leads or whatsapp from excel
+Webinar Application with countdown timer to convert the leads 
+
+Vyper propramming from python
+Web development
+data science & machine learning
+automation
+trading bot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E-commerce Website (using jumia data) 
+Online Course Web Application
