@@ -31,16 +31,16 @@ import math
 
 a = 15
 b = 4
-print(a + b)  # Addition
-print(a - b)  # Subtraction
-print(a * b)  # Multiplication
-print(a / b)  # Division
-print(a % b)  # Modulus
-print(a ** b) # Exponentiation
-print(a // b) # Floor Division
-print(math.sqrt(16)) # Square root
-print(math.pow(a, b)) # Power function
-print(math.pi) # Pi constant
+# print(a + b)  # Addition
+# print(a - b)  # Subtraction
+# print(a * b)  # Multiplication
+# print(a / b)  # Division
+# print(a % b)  # Modulus
+# print(a ** b) # Exponentiation
+# print(a // b) # Floor Division
+# print(math.sqrt(16)) # Square root
+# print(math.pow(a, b)) # Power function
+# print(math.pi) # Pi constant
 
 # Assignmnet: Stydy Assignment Operators
 # Assignment Operators
@@ -49,6 +49,50 @@ print(math.pi) # Pi constant
 # *=	x *= 2	x = x * 2	Multiplies the left operand by the right and assigns the result.
 # /=	x /= 4	x = x / 4	Divides the left operand by the right and assigns the result.
 # %=	x %= 3	x = x % 3	Finds the remainder of the division and assigns the result.
+
+# Comparism Operators
+# >, <, >=, <=, ==, !=
+
+a = 10
+b = 20
+# print(a > b)   # Greater than
+# print(a < b)   # Less than
+# print(a >= b)  # Greater than or equal to
+# print(a <= b)  # Less than or equal to
+# print(a == b)  # Equal to
+# print(a != b)  # Not equal to
+
+# Logical Operators
+# and, or, not
+# x = 5
+# print(x > 0 and x < 10)  # True if both conditions are
+# print(x > 0 or x < 3)    # True if at least one condition is true
+# print(not True)
+# print(not False)
+# print(not(x > 0 and x < 10))  # True if at least
+# print(not(x > 0))        # True if the condition is false
+
+
+
+
+
+
+# x = 10
+# x += 5 # x = x + 5
+# print(x)
+
+# x -= 3	# x = x - 3
+# print(x)
+
+# x *= 2	# x = x * 2
+# print(x)
+
+# x /= 4	# x = x / 4
+# print(x)
+
+# x %= 3	# x = x % 3
+# print(x)
+
 
 # Data Types
 # Integers, floats, strings, booleans, and more. Input/output, print formatting
@@ -65,3 +109,29 @@ is_active = True         # Boolean
 # NoneType
 data = None               # NoneType
 
+# Input/output, print formatting
+
+# name = "Adeola"
+# name2 = "Tunde"
+
+# print(name)
+# print("Hello " +  name)
+# print("Hello {name}", name)
+# print(f"Hello {name}")
+# print("Hello {}".format(name))
+# print("{} weds {}".format(name, name2))
+# print(f"{name} weds {name2}")
+# print("Hello %s" % name)
+
+# user_input = input("Enter your name: ")
+# print("You entered:", user_input)
+
+input1 = input("Enter first number: ")
+input2 = input("Enter second number: ")
+
+# print(type(input1))  
+# print(int(input1) + int(input2))  
+
+
+
+# Assignment: Study Type Conversion, Comparison Operators, Logical Operators

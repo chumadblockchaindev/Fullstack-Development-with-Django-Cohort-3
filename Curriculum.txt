@@ -31,8 +31,6 @@ Default Arguments
 
 *args and **kwargs
 
-Decorators
-
 
 Week 5:
 
@@ -51,6 +49,8 @@ Constructors (init)
 Methods, attributes
 Inheritance & polymorphism
 Encapsulation, Abstraction
+
+Decorators
 
 Week 7: Error Handling
 
