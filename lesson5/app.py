@@ -6,7 +6,7 @@
 # except IndexError as error:
 #     print("Error:", error)
 
-# Basic Error handling structure
+# # Basic Error handling structure
 # try: 
 #     age = int(input("age: "))
 # except ValueError as error:
@@ -16,7 +16,7 @@
 #     print("No execution was thrown")
 # print("Execution continues")
 
-# Handling different errors
+# # Handling different errors
 
 # try: 
 #     file = open("text.txt")
@@ -27,18 +27,32 @@
 
 
 
-# Using the with statement
+# # Using the with statement
 # try: 
-#     with open("app.py") as file:
-#         print("File Opened.")
+#     # with open("app.py") as file:
+#     #     print("File Opened.")
 #     age = int(input("age: "))
 #     xfactor = 10/age
-# except (ValueError, ZeroDivisionError):
-#     print("You did not enter a valid age")
+# except (ValueError, ZeroDivisionError) as error:
+#     print("Error: ", error)
 # else: 
 #     print("No execution was thrown")
 
 # Raising exception & Cost of raising exception
+# from time import sleep
+# def calculate_xfactor(age):
+#     if age <= 0:
+#         raise ValueError("Age cannot be zero or less")
+#     return 10/age
+
+# try:
+#     calculate_xfactor(-1)
+# except ValueError as error:
+#     # pass
+#     sleep(3)
+#     print(error)
+
+
 # from timeit import timeit
 
 # code1 = """
@@ -51,32 +65,38 @@
 #     calculate_xfactor(-1)
 # except ValueError as error:
 #     pass
-#     # print(error)
 # """
 
 # code2 = """
 # def calculate_xfactor(age):
-#     if age <= 0:
+#     if age < 0:
 #         return None
 #     return 10/age
 
-# age_factor = calculate_xfactor(-1)
-
-# if age_factor ==None:
+# xfactor = calculate_xfactor(-1)
+# if xfactor == None:
 #     pass
 # """
 
-# print("Code1 execution time", timeit(code1, number=10000))
-# print("Code2 execution time", timeit(code2, number=10000))
+# print("Code1 execution time", timeit(code1, number=10))
+# print("Code2 execution time", timeit(code2, number=10))
 
-# Creating your own custom Errors
+# # Creating your own custom Errors
 
-class InsufficientDataError(Exception):
-    pass
+# class InsufficientDataError(Exception):
+#     pass
 
-data_list = []
-if not data_list:
-    raise InsufficientDataError("The input list cannot be empty.")
+
+# def get_full_list(*numbers):
+#     if not numbers:
+#         raise InsufficientDataError("The input list cannot be empty.")
+    
+#     return numbers
+
+# try:
+#     print(get_full_list())
+# except InsufficientDataError as err:
+#     print("Error: ", err)
 
 
 # Adding Custom Data and Messages
@@ -93,7 +113,7 @@ if not data_list:
 #         # Call the base class constructor
 #         super().__init__(full_message)
 
-# # Example Usage and Handling
+# # # Example Usage and Handling
 # def set_volume(level):
 #     if level < 1:
 #         raise MinimumValueError(received_value=level, min_required=1)
@@ -111,6 +131,45 @@ if not data_list:
 
 
 # Decorators
+# A decorator is just a function that takes another function 
+# as an argument, adds some functionality, and returns 
+# the modified function.
+
+
+
+def multiply_get_2(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result * 2
+    return wrapper
+
+@multiply_get_2
+def get_x(x):
+    return x
+
+# multiplied_x = multiply_get_x(get_x(5))
+
+print(get_x(50))
+
+def my_decorator(age=None, auth=False):
+    def actual_decorator(func):
+        def wrapper(*args, **kwargs):
+            greeting = ""
+            if not auth:
+                return "Please Login to continue"
+            if int(age) < 18:
+                greeting = "Hello, Master"
+            greeting = "Hello, Mister"
+            
+            return greeting + func(*args, **kwargs)        
+        return wrapper
+    return actual_decorator
+
+@my_decorator(age=27, auth=True)
+def say_hello(name):
+    return f"{name}"
+
+print(say_hello("Chukwuma")) # Output: Something is happening before the function is called.
 
 
 
