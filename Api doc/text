@@ -1,0 +1,19 @@
+What is an api:
+An api is an application programming interface
+A request has two paths
+1. the method, 2. the endpoint
+e.g: get: /messsage/greeting
+
+What is in a request:
+
+1. method
+2. endpoint
+3. body
+4. headers
+
+Diagram of a http request:
+
+What is REST?:
+
+What is Fastapi: It is a library that help us to write rest apis and all we need is to 
+do is to write what the api does with a request and how it responds to it

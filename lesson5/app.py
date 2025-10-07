@@ -174,6 +174,3 @@ print(say_hello("Chukwuma")) # Output: Something is happening before the functio
 
 
 
-# Modules 
-
-
