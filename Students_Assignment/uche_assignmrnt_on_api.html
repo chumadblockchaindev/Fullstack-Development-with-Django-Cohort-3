@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog api</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #2b7dc5;
+      padding: 50px;
+    }
+    img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #a200ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+   
+  </style>
+</head>
+<body>
+<!-- 
+    What is an API?
+
+API stands for Application Programming Interface.
+It is a way for two software systems to communicate with each other.
+
+In simple terms, an API is a set of rules and protocols that allows different software applications 
+to communicate and exchange data with each other.
+It acts as an intermediary or messenger between two software components.
+
+
+How APIs Work (The Request-Response Cycle)
+APIs typically work through a client-server model using a request-response cycle:
+
+# Client sends a Request: One application (the client) initiates an action by sending a request to another application (the server). 
+This request is structured according to the API's rules (protocols).
+
+# API Acts as Messenger: The API receives the request, delivers it to the server, 
+and specifies what is needed (e.g., retrieving data, placing an order, or logging a user in).
+
+# Server Processes: The server processes the request and retrieves the necessary information or performs the required function.
+
+# Server sends a Response: The server sends a response back to the client, again structured according to the API's rules. 
+This response contains the requested data or a status code (like a successful status or an error message).
+
+
+# Common Examples of APIs
+1. Weather Apps: Your phone's weather app uses a weather service's API to request and display current weather data. displayed in JSON format.
+
+2. Logging In with Google/Facebook: When you click "Login with Google" on a third-party website, 
+that website is using the Google API to securely verify your identity without ever seeing your password.
+
+3. Online Shopping: When you check out and select "Pay with PayPal," 
+the e-commerce site uses the PayPal API to process the payment without directly accessing your sensitive bank details.
+
+#Purpose and Benefits of APIs
+1. The main purpose of an API is to simplify software development by enabling:
+
+2. Integration: Easily connecting new applications with existing systems.
+
+3. Reusability: Developers don't have to build every feature from scratch; they can leverage existing functionality and data offered by other services.
+
+4. Security and Abstraction: The API hides the internal details of the server, only exposing the necessary functions, which adds a layer of security and makes the system easier to maintain.
+-->
+
+
+<!-- What is a REST API?
+
+REST stands for Representational State Transfer — it’s a style of building APIs that use HTTP methods like: GET, POST, PUT, DELETE.
+
+In simple terms, a REST API is a set of rules and guidelines that allow different computer systems to communicate with each other over the internet, 
+typically using the HTTP protocol. 
+
+# CRUD Operations in REST APIs
+CRUD stands for Create, Read, Update, and Delete — the four basic operations you can perform on data.
+Create data: POST
+Read data: GET
+Update data: PUT
+Delete data: DELETE
+-->
+
+<!-- How a REST API Works (Using HTTP Methods)
+REST APIs primarily use standard HTTP methods (also called verbs) to perform operations on the resources. 
+This maps directly to the common CRUD (Create, Read, Update, Delete) operations:
+
+HTTP Method	CRUD Operation	Purpose	Example
+GET	Read	Retrieves a representation of a resource or a collection of resources.	GET /api/users (Get all users)
+POST	Create	Creates a new resource. The data for the new resource is included in the request body.	POST /api/users (Create a new user)
+PUT	Update	Replaces an existing resource entirely with the new data in the request body.	PUT /api/users/123 (Replace user 123)
+PATCH	Update	Applies partial modifications to a resource.	PATCH /api/users/123 (Update only the email for user 123)
+DELETE	Delete	Removes a specific resource.	DELETE /api/users/123 (Delete user 123)
+
+
+The Six Architectural Constraints (Principles)
+For an API to be considered truly "RESTful," it should adhere to the following six constraints:
+
+Client-Server Decoupling: The client (e.g., a web browser or mobile app) and the server must be completely separate and independent of each other. 
+This allows each side to evolve independently.
+
+Statelessness: Each request from the client to the server must contain all the information the server needs to fulfill the request. 
+The server cannot rely on any session state stored on the server from previous requests.
+
+Cacheable: Responses must explicitly or implicitly label themselves as cacheable or non-cacheable.
+This allows the client or an intermediary to store responses to reuse them for later, equivalent requests, which improves performance and scalability.
+
+Uniform Interface: This is the most critical constraint. It simplifies the entire system architecture by providing a consistent way 
+for clients to interact with all resources. It is achieved through:
+
+Resource Identification in Requests (using URIs/URLs).
+
+Manipulation of Resources Through Representations (e.g., using JSON data).
+
+Self-Descriptive Messages (using standard HTTP headers and status codes).
+
+Hypermedia as the Engine of Application State (HATEOAS) (where the server includes links in the response to guide the client on 
+available next actions—though this is often the most relaxed constraint in "RESTful" APIs today).
+
+Layered System: A client should not be able to tell whether it is connected directly to the end server or to an intermediary like a load balancer,
+ proxy, or gateway. This allows for increased scalability and security.
+
+Code on Demand (Optional): The server can temporarily extend or customize the functionality of a client by transferring executable code 
+(e.g., Java applets or scripts). This is the only optional constraint. -->
+
+
+
+<!-- 
+How to Call an API Using JavaScript
+
+We use the built-in fetch() function to make API calls in JavaScript.
+
+Here’s a simple example using the Dog API: -->
+
+
+  <h1>🐾 Random Dog Generator</h1>
+  <button id="getDog">Get Dog</button>
+  <br>
+  <img id="dogImage" src="https://dog.ceo/api/breeds/image/random" alt="Random Dog">
+
+
+
+
+
+  <script>
+    const btn = document.getElementById('getDog');
+    const dogImage = document.getElementById('dogImage');
+
+    btn.addEventListener('click', () => {
+      fetch('https://dog.ceo/api/breeds/image/random')
+        .then(response => response.json())
+        .then(data => {
+          dogImage.src = data.message;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+    
+</body>
+</html>

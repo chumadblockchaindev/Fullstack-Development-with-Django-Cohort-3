@@ -17,3 +17,77 @@ What is REST?:
 
 What is Fastapi: It is a library that help us to write rest apis and all we need is to 
 do is to write what the api does with a request and how it responds to it
+
+How to create virtual environment
+
+Step 1: Install pipenv and add to path (https://pipenv.pypa.io/en/latest/installation.html)
+pip install pipenv
+
+Step 2: Install fastapi in our virtual environment
+pipenv install fastapi
+("pipenv --venv" to view virtual environment)      
+
+Step 3: Activate Virtual Environment
+pipenv shell
+
+
+how to create virtual environment
+
+The best and most standard way to create a Python virtual environment is using the built-in venv module. This ensures your project has its own isolated set of Python packages, preventing conflicts with other projects or your global system environment.
+
+Here is the step-by-step process:
+
+1. Open Your Terminal or Command Prompt
+Navigate to the root directory of your project where you want the virtual environment to live.
+
+Bash
+
+cd path/to/your/project
+2. Create the Virtual Environment
+Use the python -m venv command followed by the name you want to give the environment. The most common convention is to name it .venv or venv.
+
+Bash
+
+# Recommended command:
+python -m venv .venv
+python (or python3): Executes your Python interpreter.
+
+-m venv: Tells Python to run the venv module.
+
+.venv: The name of the folder that will be created to hold your isolated environment files.
+
+3. Activate the Virtual Environment
+After creation, you must activate the environment to start using it. The command differs slightly depending on your operating system:
+
+⚙️ Windows (Command Prompt)
+Bash
+
+.venv\Scripts\activate
+💻 Windows (PowerShell)
+Bash
+
+.venv\Scripts\Activate.ps1
+🐧 macOS / Linux
+Bash
+
+source .venv/bin/activate
+Verification
+Once activated, you will see the environment's name (e.g., (.venv)) at the beginning of your terminal prompt.
+
+Bash
+
+# Example of an activated prompt:
+(.venv) $ path/to/your/project
+4. Install Packages
+While the environment is active, any packages you install will only exist inside this isolated project environment.
+
+Bash
+
+# Example: Install a package
+pip install requests
+5. Deactivate the Environment
+When you are done working in the project, simply use the deactivate command to return to your global system environment.
+
+Bash
+
+deactivate

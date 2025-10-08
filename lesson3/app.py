@@ -127,7 +127,13 @@ fruits = ["apple", "banana", "cherry", "orange", "grapes", "mango"]
 
 numbers = {1: "one", 2: "two", 3: "three"}
 foods = {"rice": "carbohydrate", "beans": "protein", "fish": "vegetable"}
-students = {1: ["leo", 22, "dark", 500000], 2: ["uche", 27, "dark", 1000000]}
+students = {{
+  "body": "Hello World!",
+  "id": 1
+}, {
+  "body": "Hello nigeria!",
+  "id": 2
+}}
 
 # accessing values
 
@@ -143,7 +149,7 @@ students = {1: ["leo", 22, "dark", 500000], 2: ["uche", 27, "dark", 1000000]}
 # print(foods.get("beanss", "Food not found"))
 
 # print(list(foods.keys()))
-# print(list(foods.values()))
+print(list(foods.values())) 
 # print(list(foods.items()))
 # foods.setdefault("meat", "protein")
 # print(foods)
