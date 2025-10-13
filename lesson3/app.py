@@ -11,7 +11,7 @@
 # ["hello", "good morning"]
 # [1, "one", 3.3, True, [3, 4], {}, (0.9, 8)]
 # Lists are ordered, mutable collections of items.
-fruits = ["apple", "banana", "cherry", "orange", "grapes", "mango"]
+# fruits = ["apple", "banana", "cherry", "orange", "grapes", "mango"]
 # print(fruits)
 # fruits.append("orange")  # Adding an item
 # print(fruits)  # Output: ['apple', 'banana', 'cherry', 'orange']
@@ -125,15 +125,15 @@ fruits = ["apple", "banana", "cherry", "orange", "grapes", "mango"]
 # to a real-world dictionary where you look up a word (the key) to find
 # its definition (the value).
 
-numbers = {1: "one", 2: "two", 3: "three"}
-foods = {"rice": "carbohydrate", "beans": "protein", "fish": "vegetable"}
-students = {{
-  "body": "Hello World!",
-  "id": 1
-}, {
-  "body": "Hello nigeria!",
-  "id": 2
-}}
+# numbers = {1: "one", 2: "two", 3: "three"}
+# foods = {"rice": "carbohydrate", "beans": "protein", "fish": "vegetable"}
+# students = {{
+#   "body": "Hello World!",
+#   "id": 1
+# }, {
+#   "body": "Hello nigeria!",
+#   "id": 2
+# }}
 
 # accessing values
 
@@ -149,7 +149,7 @@ students = {{
 # print(foods.get("beanss", "Food not found"))
 
 # print(list(foods.keys()))
-print(list(foods.values())) 
+# print(list(foods.values())) 
 # print(list(foods.items()))
 # foods.setdefault("meat", "protein")
 # print(foods)
@@ -204,11 +204,18 @@ print(list(foods.values()))
 # print(f"The letter \"{new_items[-1][0]}\" occours {new_items[-1][1]} times \n")
 
 names_ages_dict = {
+    # "names": ['Liam', 'Olivia', 'Noah', 'Emma', 'Oliver', 'Charlotte', 'Elijah', 'Amelia', 'James', 'Ava'],
     'Liam': 18, 'Olivia': 19, 'Noah': 20, 'Emma': 17, 'Oliver': 16,
     'Charlotte': 15, 'Elijah': 14, 'Amelia': 13, 'James': 12, 'Ava': 11,
     'William': 10, 'Sophia': 9, 'Benjamin': 8, 'Isabella': 7, 'Lucas': 6,
     'Mia': 5, 'Henry': 4, 'Evelyn': 3, 'Theodore': 2, 'Harper': 1
 }
+
+if "helen" not in names_ages_dict["names"]:
+    names_ages_dict["names"].append("helen")
+    names_ages_dict["helen"] = 21
+
+print(names_ages_dict)
 # print(names_ages_dict.keys())
 # print(sorted(names_ages_dict.values()))
 

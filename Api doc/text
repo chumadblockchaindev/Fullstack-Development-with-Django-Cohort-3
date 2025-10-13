@@ -4,6 +4,12 @@ A request has two paths
 1. the method, 2. the endpoint
 e.g: get: /messsage/greeting
 
+get
+post
+update/patch
+delete 
+
+
 What is in a request:
 
 1. method
