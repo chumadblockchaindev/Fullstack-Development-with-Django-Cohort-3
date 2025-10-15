@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Post</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      background-color: #333;
+    }
+
+    .post-container {
+      background: #fff;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 20px 25px;
+      background-color: gray;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .profile-pic {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: #615c4d;
+      background-image: url("images/28976-3840x2160-desktop-4k-my-hero-academia-background.jpg");
+    }
+    .username {
+      font-weight: 600;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #f9fafb;
+      min-height: 120px;
+      margin-bottom: 15px;
+    }
+
+    .upload-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      
+    }
+
+    .upload-box {
+      flex: 1 1 45%;
+      background-color: #f9fafb;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-box:hover {
+      border-color: #60a5fa;
+      background-color: #eff6ff;
+    }
+
+    .upload-box input {
+      display: none;
+    }
+
+    .upload-box label {
+      color: #6b7280;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .post-button {
+      width: 100%;
+      background: linear-gradient(135deg, rgb(97, 96, 96), #141516);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .post-button:hover {
+      background: linear-gradient(135deg, #608369, #1c3824);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <div class="post-header">
+      <div class="profile-pic"></div>
+      <div class="username">Leo</div>
+    </div>
+
+    <textarea placeholder="What's on your mind?"></textarea>
+
+    <div class="upload-section">
+      <div class="upload-box">
+        <input type="file" id="imageUpload" accept="image/*" />
+        <label for="imageUpload">📷 Upload Image</label>
+      </div>
+
+      <div class="upload-box">
+        <input type="file" id="videoUpload" accept="video/*" />
+        <label for="videoUpload">🎥 Upload Video</label>
+      </div>
+    </div>
+
+    <button class="post-button">Post</button>
+  </div>
+</body>
+</html>

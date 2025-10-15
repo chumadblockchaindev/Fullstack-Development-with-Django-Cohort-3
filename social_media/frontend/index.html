@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Social media app</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <h1 id="greeting">Hello, Social Media!</h1>
-
+    <h1 id="greeting" class="text-3xl font-bold underline">All Posts</h1>
+    <div id="post-list">
+    </div>
+    <form>
+        <textarea id="post-content" rows="4" cols="50" placeholder="Write your post here..."></textarea><br>
+        <button type="submit" className="bg-sky-500 hover:bg-sky-700">Submit Post</button>
+    </form>
     <script src="scripts/app.js"></script>
 </body>
 </html>

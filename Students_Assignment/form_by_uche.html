@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="bg-indigo-300 flex items-center justify-center py-8 px-2 sm:px-6 lg:px-8 overflow-auto min-h-screen">
+
+    <div class="max-w-xl w-full space-y-8 p-10 bg-pink-100 rounded-xl shadow-2xl">
+        <div class="text-center">
+            <h2 class="mt-6 text-xl font-bold text-indigo-700">
+                Welcome! please fill out the form below to contact us.
+            </h2>
+            <p class="mt-2 text-sm text-indigo-500 font-medium">
+                We'll get back to you as soon as possible.
+            </p>
+        </div>
+
+        <form class="mt-8 space-y-6" action="#" method="POST">
+            
+            <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                <div>
+                    <label for="first-name" class="block text-sm font-medium text-indigo-700">First name</label>
+                    <div class="mt-1">
+                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" required
+                               class="form-input block w-full border border-indigo-300 px-2 py-2 rounded-lg shadow-sm 
+                                      focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="last-name" class="block text-sm font-medium text-indigo-700">Last name</label>
+                    <div class="mt-1">
+                        <input type="text" name="last-name" id="last-name" autocomplete="family-name" required
+                               class="form-input block w-full border border-indigo-300 px-2 py-2 rounded-lg shadow-sm 
+                                      focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-indigo-700">Email address</label>
+                <div class="mt-1">
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                           class="form-input block w-full border border-indigo-300 px-2 py-2 rounded-lg shadow-sm 
+                                      focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
+                </div>
+            </div>
+
+            <div>
+                <label for="subject" class="block text-sm font-medium text-indigo-700">Subject</label>
+                <div class="mt-1">
+                    <input type="text" name="subject" id="subject" required
+                           class="form-input block w-full border border-indigo-300 px-2 py-2 rounded-lg shadow-sm 
+                                      focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                      placeholder="Subject of your message">
+                </div>
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-indigo-700">Message</label>
+                <div class="mt-1">
+                    <textarea id="message" name="message" rows="4" required
+                              class="form-input block w-full border border-indigo-300 px-2 py-2 rounded-lg shadow-sm 
+                                      focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                      placeholder="Type your message here...">
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="flex items-center">
+                <input id="privacy-policy" name="privacy-policy" type="checkbox" required
+                       class="form-checkbox h-4 w-4 text-indigo-600 border-indigo-300 rounded 
+                              focus:ring-indigo-500">
+                <label for="privacy-policy" class="ml-2 block text-sm text-gray-900">
+                    I agree to the <a href="#" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>
+                </label>
+            </div>
+
+            <div>
+                <button type="submit"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white 
+                               bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 
+                               transition duration-150 ease-in-out">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact form</title>
+
+  <!-- Tailwind Play CDN (good for quick prototypes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: tweak Tailwind config (fonts, etc.) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5a4', /* teal-ish */
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+
+  <main class="w-full max-w-2xl">
+    <section class="bg-white shadow-lg rounded-2xl p-8 sm:p-10">
+      <h1 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">Get in touch</h1>
+      <p class="text-sm text-gray-500 mb-6">Fill out the form and we'll get back to you within 24 hours.</p>
+
+      <form id="contactForm" class="space-y-6" novalidate>
+        <!-- Row: Name + Email -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full name</label>
+            <input
+              id="fullname"
+              name="fullname"
+              type="text"
+              required
+              minlength="2"
+              class="block w-full rounded-lg border border-gray-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              placeholder="Jane Doe"
+            />
+            <p class="mt-1 text-xs text-red-600 hidden" id="fullnameError">Please enter your name (2+ characters).</p>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="block w-full rounded-lg border border-gray-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              placeholder="you@example.com"
+            />
+            <p class="mt-1 text-xs text-red-600 hidden" id="emailError">Please enter a valid email address.</p>
+          </div>
+        </div>
+
+        <!-- Row: Phone + Subject -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone (optional)</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              pattern="^\+?[0-9\- ]{7,20}$"
+              class="block w-full rounded-lg border border-gray-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              placeholder="+234 812 345 6789"
+            />
+            <p class="mt-1 text-xs text-gray-400">Include country code for faster replies.</p>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+            <select id="subject" name="subject" class="block w-full rounded-lg border border-gray-200 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+              <option value="">Choose a subject...</option>
+              <option>General question</option>
+              <option>Bug report</option>
+              <option>Feature request</option>
+              <option>Support</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            minlength="10"
+            class="block w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            placeholder="Tell us what's on your mind..."
+          ></textarea>
+          <p class="mt-1 text-xs text-red-600 hidden" id="messageError">Please write a message (10+ characters).</p>
+        </div>
+
+        <!-- File Upload (optional) -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Attach file (optional)</label>
+          <div class="flex items-center gap-3">
+            <input id="attachment" name="attachment" type="file" class="text-sm" />
+            <span class="text-xs text-gray-400">Max 5MB — pdf, png, jpg</span>
+          </div>
+        </div>
+
+        <!-- Radio + Checkbox -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <input id="subscribe" name="subscribe" type="checkbox" class="h-4 w-4 rounded text-primary focus:ring-primary" />
+            <label for="subscribe" class="text-sm text-gray-700">Subscribe to newsletter</label>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span class="text-sm text-gray-700">Preferred contact:</span>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="contactPref" value="email" checked class="h-4 w-4" />
+              <span class="text-sm">Email</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="contactPref" value="phone" class="h-4 w-4" />
+              <span class="text-sm">Phone</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="w-full inline-flex justify-center items-center gap-2 rounded-lg bg-primary text-white font-medium px-5 py-2.5 hover:brightness-95 focus:outline-none focus:ring-4 focus:ring-primary/30"
+          >
+            Send message
+          </button>
+        </div>
+
+        <!-- Success / Error -->
+        <p id="formFeedback" class="hidden text-sm text-green-600"></p>
+      </form>
+    </section>
+
+    <p class="text-center text-xs text-gray-400 mt-4">Built with Tailwind CSS — quick and responsive.</p>
+  </main>
+
+  <!-- Simple client-side validation + feedback (no external libs) -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const feedback = document.getElementById('formFeedback');
+
+      function showError(id, show) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.toggle('hidden', !show);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        feedback.classList.add('hidden');
+
+        // Basic HTML5 validity check
+        const fullname = form.fullname;
+        const email = form.email;
+        const message = form.message;
+
+        let valid = true;
+
+        if (!fullname.checkValidity() || fullname.value.trim().length < 2) {
+          showError('fullnameError', true);
+          valid = false;
+        } else {
+          showError('fullnameError', false);
+        }
+
+        if (!email.checkValidity()) {
+          showError('emailError', true);
+          valid = false;
+        } else {
+          showError('emailError', false);
+        }
+
+        if (!message.checkValidity() || message.value.trim().length < 10) {
+          showError('messageError', true);
+          valid = false;
+        } else {
+          showError('messageError', false);
+        }
+
+        if (!valid) {
+          feedback.textContent = 'Please fix the errors above and try again.';
+          feedback.className = 'text-sm text-red-600 mt-2';
+          feedback.classList.remove('hidden');
+          return;
+        }
+
+        // Simulate sending...
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+
+        // Simulate async send (replace with real fetch/ajax in production)
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Send message';
+          form.reset();
+
+          feedback.textContent = 'Thanks — your message has been sent!';
+          feedback.className = 'text-sm text-green-600 mt-2';
+          feedback.classList.remove('hidden');
+        }, 900);
+      });
+    })();
+  </script>
+</body>
+</html>
