@@ -1,22 +1,7 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from models.models import Post, PostId, Comment, CommentId, PostWithComments
+from fastapi import APIRouter, HTTPException
+from social_media.models.post_model import Post, PostId, Comment, CommentId, PostWithComments
 
-
-origins = [
-    "http://localhost",
-    "http://127.0.0.1:5500",
-]
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+router = APIRouter()
 
 post_db = {
     0: {"id": 0, "content": "Hello, world!"},
@@ -24,14 +9,13 @@ post_db = {
     2: {"id": 2, "content": "FastAPI is awesome!"},
 }
 
-
 def find_post(post_id: int):
     if post_id not in post_db:
         raise HTTPException(status_code=404, detail="Post not found")
     return post_db[post_id]
 
 
-@app.post("/post", response_model=PostId)
+@router.post("/post", response_model=PostId)
 async def create_post(post: Post):
     body = post.dict()
     if body["content"] == "":
@@ -42,19 +26,19 @@ async def create_post(post: Post):
     return post_db[post_id]
 
 
-@app.get("/posts", response_model=list[PostId])
+@router.get("/posts", response_model=list[PostId])
 async def get_posts():
     return list(post_db.values())
 
 
-@app.get("/post/{post_id}", response_model=PostId)
+@router.get("/post/{post_id}", response_model=PostId)
 async def get_one_post(post_id: int):
     if post_id not in post_db:
         raise HTTPException(status_code=404, detail="Post not found")
     return post_db[post_id]
 
 
-@app.delete("/post/{post_id}", response_model=PostId)
+@router.delete("/post/{post_id}", response_model=PostId)
 async def delete_post(post_id: int):
     if post_id not in post_db:
         raise HTTPException(status_code=404, detail="Post not found")
@@ -63,7 +47,7 @@ async def delete_post(post_id: int):
     return post
 
 
-@app.put("/post/{post_id}", response_model=PostId)
+@router.put("/post/{post_id}", response_model=PostId)
 async def update_post(post_id: int, post: Post):
     if post_id not in post_db:
         raise HTTPException(status_code=404, detail="Post not found")
@@ -77,7 +61,7 @@ async def update_post(post_id: int, post: Post):
     return post_db[post_id]
 
 
-@app.post("/post/{post_id}/comment", response_model=CommentId)
+@router.post("/post/{post_id}/comment", response_model=CommentId)
 async def create_comment_for_post(post_id: int, comment: Comment):
     body = comment.dict()
     if body["comment"] == "":
@@ -90,13 +74,12 @@ async def create_comment_for_post(post_id: int, comment: Comment):
     post["comments"] = post_comments
     return {"id": comment_id, **body}
 
-@app.get("/post/{post_id}/comment", response_model=list[CommentId])
+@router.get("/post/{post_id}/comment", response_model=list[CommentId])
 async def get_comments_for_post(post_id: int):
     post = find_post(post_id)
     return post.get("comments", [])
 
-
-@app.get("/post/{post_id}/comments", response_model=PostWithComments)
+@router.get("/post/{post_id}/comments", response_model=PostWithComments)
 async def get_comments_with_post(post_id: int):
     post = find_post(post_id)    
     comments = await get_comments_for_post(post_id)

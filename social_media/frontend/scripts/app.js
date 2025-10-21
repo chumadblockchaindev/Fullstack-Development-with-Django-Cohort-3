@@ -8,15 +8,31 @@ textarea_element = document.getElementById('post-content');
 
 async function deletePost(id) {
     try {
-        // Corrected URL: Use :8000 port and ensure the path matches your API
-        const id_ = parseInt(id)
-        const response = await fetch(`http://127.0.0.1:8000/post/${id_}`, { 
+        const id_ = parseInt(id);
+        const response = await fetch(`http://127.0.0.1:8000/post/${id_}`, {
             method: 'DELETE',
         });
         
+        const deleteToastElement = document.createElement('div');
+        
         if (response.ok) {
-            alert(`Post ${id} deleted.`);
-            loadPosts(); // Reload posts without refreshing the whole page
+            deleteToastElement.innerHTML = `
+                <div class="toast">
+                    <div class="alert alert-info">
+                        <span>Post ${id} deleted.</span>
+                    </div>
+                </div>
+            `;
+            
+            // 🚨 THE CRITICAL MISSING STEP:
+            // Append the new element to the <body> so it becomes visible.
+            document.body.appendChild(deleteToastElement);
+            
+            setTimeout(() => {
+                deleteToastElement.remove(); // This removes the element after 3 seconds
+            }, 3000);
+            
+            loadPosts(); 
         } else {
             alert(`Failed to delete post ${id}. Status: ${response.status}`);
         }
@@ -24,7 +40,6 @@ async function deletePost(id) {
         console.error("Error deleting post:", error);
     }
 }
-
 // ----------------------------------------------------
 // 2. LOAD POSTS FUNCTION (for initial load and refresh)
 // ----------------------------------------------------
@@ -38,7 +53,7 @@ async function loadPosts() {
     
     // Use Object.keys() for robust check of empty dictionary/object
     if (Object.keys(data).length === 0 || data.length === 0) { 
-        container.innerHTML = "<li>No posts available.</li>";
+        container.innerHTML = `<li class="list-none">No posts available.</li>`;
         return;
     }
 
@@ -49,10 +64,17 @@ async function loadPosts() {
         const postElement = document.createElement('div');
         postElement.className = "mb-4 p-4 border rounded shadow-sm";
         postElement.innerHTML = `
-            ${post.id} - 
-            ${post.content}
-            <button class="delete-btn text-red-500 text-sm" data-post-id="${post.id}">Delete</button>
-            <button class="text-gray-500 text-sm" > View</button>
+             <li class="list-row list-none">
+                <div class="flex items-center gap-2 mb-2">
+                <div><img class="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/1@94.webp"/></div>
+                <div>Dio Lupa</div>
+                </div>
+                <p class="list-col-wrap text-md">
+                 ${post.content}
+                </p>
+                <button class="btn btn-xs delete-btn text-red-500 text-sm" data-post-id="${post.id}">Delete</button>
+                <button class="btn btn-xs text-green-500 text-sm" >View</button>
+            </li>
         `;
         
         // --- FIX: BUTTON SELECTION AND LISTENER MUST BE INSIDE THE LOOP ---
